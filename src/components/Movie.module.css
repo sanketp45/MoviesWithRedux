@@ -1,0 +1,9 @@
+
+.movie {
+	display: flex;
+	flex-wrap: wrap;
+   margin-top:50px;
+   margin-left: 100px;
+   margin-right: 5px; 
+    
+}
