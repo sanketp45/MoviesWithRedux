@@ -1,29 +1,41 @@
-import React from "react";
+import React,{Component} from "react";
 import classes from './Movie.module.css';
-import Result from './Result'
+import Result from './Result';
+import {connect} from 'react-redux';
 import Loader from './Loader';
-const Movie = ({ results}) => {
 
+class Movie extends Component {
 
+ render(){
+ const{results}=this.props
 
-
-return (
+  return (
     <section className={classes.movie}>
+           {
+       <ul> 
        {
-       	results.map(results => (
-        <Result key={results.imdbID} results={results} />
-      ))
 
+         results.map(result => (
+     <>
+      <li> <img src ={result.Poster} /> </li>
+        <li> {result.Title} </li> 
+     </>
+      
+      ))}
+     </ul>
+}
 
-
-
-
-       }
     </section>
   )
 
 
 };
+}
+ const mapStateToProps = state => ({
+  results: state.movies.Movie,
+
+});
 
 
-export default Movie;
+
+export default connect(mapStateToProps) (Movie);

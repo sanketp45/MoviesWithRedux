@@ -3,7 +3,7 @@ import Classes from './Loader.module.css';
 
 const Loader=()=>
 {
-console.log("laoder called")
+
    return(
 
      <div className={Classes.loader}>
@@ -18,3 +18,5 @@ console.log("laoder called")
 
 
 export default Loader
+
+
