@@ -1,7 +1,6 @@
 import * as actionTypes from './actiontypes';
 import axios from 'axios';
 
-
 export const searchMovie = search => dispatch => {
 	console.log("inside of search",search)
   dispatch({
@@ -19,8 +18,6 @@ console.log("setMovies",data)
 
       });
 
-
-
 };
 
 export const failedsearch =data =>dispatch=>{
@@ -28,57 +25,22 @@ export const failedsearch =data =>dispatch=>{
   dispatch({
   
    type:actionTypes.FAILED_SEARCH
-   
-
-  })
-
-
+   })
 }
 
 
 export const fetchMovies = search => dispatch => {
- 
-console.log("inside of fetch movies",search)
- 
- 
-
-
-fetch(`https://www.omdbapi.com/?s=${search}&apikey=8d641397`)
+   fetch(`https://www.omdbapi.com/?s=${search}&apikey=8d641397`)
       .then(response => response.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
          dispatch(setMovies(jsonResponse.Search))
          
-
-        } else {
-          
-           dispatch(failedsearch("error"))
+	} else {
+             dispatch(failedsearch("error"))
                  }
       });
-
-
-
 
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
